@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog</title>
+        <style>
+            {% include "base.css" %}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header class="index-header">
+                <img
+                    src="https://avatars.githubusercontent.com/u/60810604?s=400&amp;u=a1b6820b4dd20d4ca139b699a219200becd4d402&amp;v=4"
+                    alt="Profile"
+                    style="
+                        border-radius: 50%;
+                        width: 150px;
+                        height: 150px;
+                        object-fit: cover;
+                    "
+                />
+                <p class="subtitle">Articles and thoughts</p>
+            </header>
+            <ul class="posts">
+                {% for post in posts %}
+                <li class="post-item">
+                    <h2 class="post-title">
+                        <a href="{{ post.slug }}.html">{{ post.title }}</a>
+                    </h2>
+                    <div class="post-meta">{{ post.date }}</div>
+                    <p class="post-excerpt">{{ post.excerpt }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+            <footer class="index-footer">
+                <p>© 2026. All thoughts are my own.</p>
+            </footer>
+        </div>
+    </body>
+</html>

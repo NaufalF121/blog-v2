@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{{ title }}</title>
+        <style>
+            {% include "base.css" %}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav><a href="/">← Back</a></nav>
+            <header>
+                <h1>{{ title }}</h1>
+                <div class="meta">{{ date }}</div>
+            </header>
+            <article>{{ content | safe }}</article>
+            <footer>
+                <p>© 2026. All thoughts are my own.</p>
+            </footer>
+        </div>
+    </body>
+</html>
