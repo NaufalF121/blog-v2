@@ -1,0 +1,15 @@
+# Cloudflare Pages configuration for Docker deployment
+
+[build]
+command = "docker build -t blog-v2 ."
+cwd = "/"
+
+[env]
+PORT = "8080"
+
+[triggers]
+branches = ["main"]
+
+[compatibility]
+date = "2024-01-01"
+flags = []
