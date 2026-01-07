@@ -22,8 +22,12 @@ async fn main() -> std::io::Result<()> {
         }
     });
 
+    // Get port from environment variable or default to 8000
+    let port = std::env::var("PORT").unwrap_or_else(|_| "8000".to_string());
+    let bind_address = format!("0.0.0.0:{}", port);
+
     println!("Starting web server...");
-    println!("Visit: http://localhost:8000");
+    println!("Server listening on: {}", bind_address);
 
     // Spawn a thread to handle file change events
     std::thread::spawn(move || {
@@ -43,7 +47,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(middleware::NormalizePath::trim())
             .default_service(web::route().to(handle_request))
     })
-    .bind("127.0.0.1:8000")?
+    .bind(&bind_address)?
     .run()
     .await
 }
