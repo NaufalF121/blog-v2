@@ -1,1 +1,11 @@
-/target
+/target/debug
+/target/flycheck()
+/target/release/.fingerprint
+/target/release/deps
+/target/release/build
+/target/release/.cargo-lock
+/target/release/.rustc_info.json
+/target/release/.rmeta
+/target/release/.d
+/target/release/.fingerprint
+/target/release/BlogWebsite.d
